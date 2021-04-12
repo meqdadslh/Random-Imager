@@ -1,15 +1,18 @@
-div {
-    width: 100px;
+body {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.square {
     height: 100px;
+    width: 100px;
+}
+
+.carddiv {
     background-color: black;
     color: white;
     text-align: center;
-    vertical-align: middle;
-    font-size: 20px;
-    display: flex;
-    flex-direction: row;
-}
-
-div.pointer {
-    cursor: pointer;
+    padding: 15;
 }

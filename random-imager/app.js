@@ -1,3 +1,5 @@
+const $body = $("body")
+
 const cards = [
     'https://www.trustedtarot.com/img/cards/the-fool.png',
     'https://www.trustedtarot.com/img/cards/the-magician.png',
@@ -16,21 +18,23 @@ const cards = [
     'https://www.trustedtarot.com/img/cards/the-tower.png',
     'https://www.trustedtarot.com/img/cards/the-moon.png'
 ]
-const $body = $("body");
-const $div = $("<div>").text("Add random card")
-$body.append($div);
-console.log($div)
-
-const $cards = $("<cards>")
-$div.append($cards);
 
 
-const $makeCard = () => {
-    Math.floor((Math.random() * cards.length));
-    console.log()
+const makeCard = () => {
+    const index = Math.floor((Math.random() * cards.length));
+    return cards[index]
 }
 
+const $cardDiv = $("<div>").addClass("square").addClass("carddiv").text("Add random card")
+$body.append($cardDiv)
 
-$div.on("click", (event) => {
-    $makeCard()
+
+$cardDiv.on("click", (event) => {
+    const $imageDiv = $("<div>")
+    $imageDiv.addClass("square")
+    const $img = $("<img>")
+    $img.attr("src", makeCard())
+    $img.addClass("square")
+    $imageDiv.append($img)
+    $body.append($imageDiv)
 })
